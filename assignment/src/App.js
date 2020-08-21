@@ -62,7 +62,7 @@ const App = () => {
         setLoading(false);
       }, 1000);
     } else {
-      window.location.reload();
+      window.location.assign("/home");
     }
     setIsFetching(false);
   };
