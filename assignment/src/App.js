@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
 import Navbar from "./components/navbar";
@@ -51,7 +51,6 @@ const App = () => {
 
   const searchAPI = async (e) => {
     e.preventDefault();
-
     setLoading(true);
     if (query !== "") {
       setTimeout(async () => {
@@ -59,7 +58,7 @@ const App = () => {
           `https://api.punkapi.com/v2/beers?beer_name=${query}&per_page=50`
         );
         setQuery("");
-        setSearchData(res.data);
+        setAllData(res.data);
         setLoading(false);
       }, 1000);
     } else {
@@ -115,11 +114,7 @@ const App = () => {
             </div>
           ) : (
             <div>
-              <Landing
-                allData={allData}
-                searchData={searchData}
-                isFetching={isFetching}
-              />
+              <Landing allData={allData} isFetching={isFetching} />
             </div>
           )}
         </Route>
@@ -133,7 +128,7 @@ const App = () => {
             </div>
           ) : (
             <div>
-              <Favourites searchData={searchData} isFetching={isFetching} />
+              <Favourites isFetching={isFetching} />
             </div>
           )}
         </Route>
