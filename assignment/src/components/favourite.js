@@ -39,7 +39,7 @@ const Favourites = ({ searchData }) => {
             ))}
           </div>
         ) : (
-          <div>Favourites List Empty !!! </div>
+          <div className='empty'>Favourites List Empty !!! </div>
         )}
       </div>
     );
