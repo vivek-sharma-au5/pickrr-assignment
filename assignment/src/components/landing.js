@@ -8,7 +8,7 @@ const Landing = ({ allData, isFetching }) => {
     allFavs.push(...res.data.map((b) => b));
     localStorage.setItem("favourites", JSON.stringify(allFavs));
   };
-
+  console.log(allFavs);
   return (
     <div className='all-results'>
       {allData.map((elem, index) => (
